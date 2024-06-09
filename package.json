@@ -1,0 +1,29 @@
+{
+  "name": "food-ordering-app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/himeshpal/Food-ordering-web-app.git"
+  },
+  "keywords": [
+    "no"
+  ],
+  "author": "Himesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/himeshpal/Food-ordering-web-app/issues"
+  },
+  "homepage": "https://github.com/himeshpal/Food-ordering-web-app#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "browserslist": {}
+}
