@@ -2961,49 +2961,18 @@ var _header = require("./components/Header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
 var _body = require("./components/Body");
 var _bodyDefault = parcelHelpers.interopDefault(_body);
-/* Components of Our Food-Order App
- * Header
- * - Logo
- * - Nav Items
- * Body
- * - Search Bar
- * - Restaurant-Container
- *  - Restaurant-Card
- *    - Img
- *    - Name of Res, Star Rating, cuisine, delivery time.
- * Footer
- * - Copyright
- * - Links
- * - Address
- * - Contact
- */ //  const styleCard = {
-//   backgroundColor: '#f0f0f0',
-// };
-// * Props :
-// * prop -> is Just a JS Object
-// * Note: When you have to dainamically pass in a data to a component, you pass in prop
-// const RestaurantCard = (props) => {
-// console.log(props);
-// * Note We can also destructure props on the fly by wrapping them in between {}, this is like...
-// * const { resName, cuisine } = props;
-// const RestaurantCard = ({ resName, cuisine }) => {
-//   console.log({ resName, cuisine });
-// * not using keys (not acceptable) <<<< index as a key <<<<<<<<<< unique id (is the best  practice)
-// * What is Config-driven-UI -> A "config-driven UI" is a user interface that is built and configured using a declarative configuration file or data structure, rather than being hardcoded.
-// * Every company now-a-days follows these approach, because our Appications need to be Dynamic These Days
-// * Note: A Good Senior Frontend engineer is - who is a good UI Layer Engineer and a good Data Layer Engineer
 const currYear = new Date().getFullYear();
 const Footer = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("footer", {
         className: "footer",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {}, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 56,
+            lineNumber: 12,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/App.js",
-        lineNumber: 55,
+        lineNumber: 11,
         columnNumber: 5
     }, undefined);
 };
@@ -3014,23 +2983,23 @@ const AppLayout = ()=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 64,
+                lineNumber: 20,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyDefault.default), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 65,
+                lineNumber: 21,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Footer, {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 66,
+                lineNumber: 22,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/App.js",
-        lineNumber: 63,
+        lineNumber: 19,
         columnNumber: 5
     }, undefined);
 };
@@ -3038,7 +3007,7 @@ _c1 = AppLayout;
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AppLayout, {}, void 0, false, {
     fileName: "src/App.js",
-    lineNumber: 72,
+    lineNumber: 28,
     columnNumber: 13
 }, undefined));
 var _c, _c1;
@@ -27575,55 +27544,56 @@ var _restaurantCard = require("./RestaurantCard");
 var _restaurantCardDefault = parcelHelpers.interopDefault(_restaurantCard);
 var _mockData = require("../utils/mockData");
 var _mockDataDefault = parcelHelpers.interopDefault(_mockData);
+var _s = $RefreshSig$();
 const Body = ()=>{
+    _s();
+    const [listOfRestaurants, setListOfRestaurants] = (0, _react.useState)((0, _mockDataDefault.default));
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "search-container",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "text",
-                        placeholder: "Search Food or Restaurant"
-                    }, void 0, false, {
-                        fileName: "src/components/Body.js",
-                        lineNumber: 9,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        children: "Search"
-                    }, void 0, false, {
-                        fileName: "src/components/Body.js",
-                        lineNumber: 10,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
+                className: "filter",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    className: "filter-btn",
+                    onClick: ()=>{
+                        // * Filter logic
+                        const filteredList = listOfRestaurants.filter((res)=>res.data.avgRating > 4);
+                        setListOfRestaurants(filteredList);
+                        console.log(filteredList);
+                    },
+                    children: "Top Rated Restaurants"
+                }, void 0, false, {
+                    fileName: "src/components/Body.js",
+                    lineNumber: 11,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 8,
+                lineNumber: 10,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "res-container",
-                children: (0, _mockDataDefault.default).map((restaurant)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
+                children: listOfRestaurants.map((restaurant)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
                         resData: restaurant
                     }, restaurant.data.id, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 14,
+                        lineNumber: 30,
                         columnNumber: 11
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 12,
+                lineNumber: 26,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 7,
+        lineNumber: 9,
         columnNumber: 5
     }, undefined);
 };
+_s(Body, "VqXrc/LZ4Y4G4+T/44M+hDo7UNI=");
 _c = Body;
 exports.default = Body;
 var _c;
